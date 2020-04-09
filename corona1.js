@@ -40,7 +40,7 @@ function OnLoad()
     
 	back = gfx.CreateBackground( "Img/back.png" )
 	face = gfx.CreateSprite( "Img/face_2898x2090x3x11" )
-	back2 = gfx.CreateBackground( "Img/back_blk.png" )
+	//back2 = gfx.CreateBackground( "Img/back_blk.png" )
 	black = gfx.CreateSprite( "Img/back_blk.png" )
 	replay = gfx.CreateSprite( "Img/replay.png" )
 	score = gfx.CreateText( score.toString(), 0.04, "Img/Desyrel.xml" );
@@ -59,7 +59,7 @@ function OnLoad()
 	paperIcon = gfx.CreateSprite("Img/paperIcon.png")
 	pasta = gfx.CreateSprite("Img/pasta_560x560x2x2", "pastas" )
 	pastaIcon = gfx.CreateSprite("Img/pasta_560x560x2x2", "pastas" )
-    gameover = gfx.CreateSprite( "Img/game_over.png", "gameover" )
+    //gameover = gfx.CreateSprite( "Img/game_over.png", "gameover" )
     boss = gfx.CreateSprite("Img/boss_2688x2700x7x6", "boss" )
     
     rollButton = gfx.CreateSprite("Img/paperIcon.png")
