@@ -65,7 +65,7 @@ var paperFreq = 20000
 
 
 //if on pc ======================
-var bossSpeed = 0.00005
+var bossSpeed = 0.00003
 var virusSpeed = 0.002
 var virusFreq = 280
 var virusPoints = 100
@@ -218,7 +218,6 @@ function StartGame()
 	
 	setTimeout(Cough, 10000 + Math.random()*10000)
 	setInterval(Blink, 2000 + 2000*Math.random())
-	//setInterval(Cough, 2000 + 2000*Math.random())
 	music1.Play(true)
 	
 	//AddRollButton()
