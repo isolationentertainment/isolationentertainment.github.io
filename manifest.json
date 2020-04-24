@@ -1,0 +1,17 @@
+{
+    "short_name": "Viral Defence",
+    "name": "Viral Defence Game",
+    "icons": [
+      {
+        "src": "Img/corona_img.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "start_url": "index.html",
+    "display": "standalone",
+    "orientation": "portrait",
+    "lang": "en-US",
+    "background_color": "black",
+    "theme_color": "black"
+  }

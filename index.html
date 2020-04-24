@@ -1,11 +1,111 @@
+
+<!-- 
+  Viral Defence
+
+  By Seb Walker <isolationentertainment20@gmail.com>
+  
+  Built using DroidScript GameView:-   
+  
+  <http://droidscript.org/>  
+  <https://dsgameview.wixsite.com/gameview/>
+ 
+  Graphics By Seb Walker 
+
+  Music Credit:
+
+	8bit Dungeon Boss - Video Classica by Kevin MacLeod is licensed under a Creative Commons Attribution license (https://creativecommons.org/licenses/by/4.0/)
+	Source: http://incompetech.com/music/royalty-free/index.html?isrc=USUAN1200067
+	Artist: http://incompetech.com/
+
+	8bit Dungeon Level - Video Classica by Kevin MacLeod is licensed under a Creative Commons Attribution license (https://creativecommons.org/licenses/by/4.0/)
+	Source: http://incompetech.com/music/royalty-free/index.html?isrc=USUAN1200066
+	Artist: http://incompetech.com/
+
+	{8_bit_March} by Twin Musicom (twinmusicom.org)
+	{Digital Voyage} by Twin Musicom (twinmusicom.org)
+	{Mega Rust} by Twin Musicom (twinmusicom.org)
+	{NES Boss} by Twin Musicom (twinmusicom.org)
+-->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+	<link rel="manifest" href="manifest.json">
+
+	<link rel="apple-touch-icon" href="Img/corona_img.png">   
+	
+	<meta name="apple-mobile-web-app-title" content="Viral Defence"> 
+    <meta name="mobile-web-app-capable" content="yes"/>
+
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />  
+	<meta name="theme-color" content="black"/>  
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+	<meta name="msapplication-TileImage" content="Img/corona_img.png">  
+	<meta name="msapplication-TileColor" content="#FFFFFF">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Viral Defence</title>
 </head>
-<body>
-    <h1>Full Hello World</h1>
+<style>
+    html, body {
+        overflow: hidden;
+    } 
+    body { background-color: black; text-align: center; margin: 0; position: relative;}
+    iframe { height:0vh; width: 0vw; overflow: hidden }
+</style>
+<script>
+    var btn = null;
+    var _isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    var _isApple = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    function MobileCheck()
+    {
+        if (!window.matchMedia('(display-mode: standalone)').matches) {  
+            alert("For a full-screen and offline experience, go to settings and add to home screen!");
+        }
+  
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+
+        if (_isMobile) 
+        {
+            //hide iframe and give it zero height
+            document.getElementById("game").style.visibility = "hidden";
+            document.getElementById("game").style.height = "0vh";
+            
+            //Add button to enable fullscreen
+            btn = document.createElement("input"); 
+            btn.type = "image";
+            btn.src = "Img/touch.png";
+            btn.style = "margin-top:10vh; margin-left:2vh"
+            var txt = document.createElement("text");
+            btn.onclick = MobileMode;
+            document.body.appendChild(btn);
+        }
+        else 
+        {
+            document.getElementById("game").style.cssText = "height:82vh; width: calc(90vh*0.54); margin-top:5vh; border:hidden; overflow: hidden";
+            document.getElementById('game').contentDocument.location.reload(true);
+        }
+    }
+    //Make game fullscreem and reload to get correct size
+    function MobileMode()
+    {
+        if(_isApple) {window.location.href = "game.html"; return;}
+        var game = document.getElementById("game");
+        if(!_isApple) game.requestFullscreen();
+        game.style.visibility="visible";
+        document.getElementById('game').contentDocument.location.reload(true);
+    }
+</script>
+<body onload="MobileCheck()">
+    <iframe id="game" src="game.html" ></iframe>
+    <div class="container">
+        <h1 class="title">Viral Defence!</h1>
+      </div>
 </body>
 </html>
